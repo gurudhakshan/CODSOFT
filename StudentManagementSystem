@@ -1,39 +1,31 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 class Student {
     private String name;
     private int rollNumber;
     private String grade;
-
     public Student(String name, int rollNumber, String grade) {
         this.name = name;
         this.rollNumber = rollNumber;
         this.grade = grade;
     }
-
     public int getRollNumber() {
         return rollNumber;
     }
-
     @Override
     public String toString() {
         return "Name: " + name + ", Roll Number: " + rollNumber + ", Grade: " + grade;
     }
 }
-
 class StudentManagementSystem {
     private List<Student> students;
-
     public StudentManagementSystem() {
         students = new ArrayList<>();
     }
-
     public void addStudent(Student student) {
         students.add(student);
     }
-
     public boolean removeStudent(int rollNumber) {
         for (Student student : students) {
             if (student.getRollNumber() == rollNumber) {
@@ -43,7 +35,6 @@ class StudentManagementSystem {
         }
         return false;
     }
-
     public Student searchStudent(int rollNumber) {
         for (Student student : students) {
             if (student.getRollNumber() == rollNumber) {
@@ -52,17 +43,14 @@ class StudentManagementSystem {
         }
         return null;
     }
-
     public List<Student> getAllStudents() {
         return students;
     }
 }
-
 public class Student_management_system{
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         StudentManagementSystem sms = new StudentManagementSystem();
-
         while (true) {
             System.out.println("1. Add Student");
             System.out.println("2. Remove Student");
@@ -71,7 +59,6 @@ public class Student_management_system{
             System.out.println("5. Exit");
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
-
             switch (choice) {
                 case 1:
                     scanner.nextLine(); 
@@ -82,12 +69,10 @@ public class Student_management_system{
                     scanner.nextLine();
                     System.out.print("Enter grade: ");
                     String grade = scanner.nextLine();
-
                     Student newStudent = new Student(name, rollNumber, grade);
                     sms.addStudent(newStudent);
                     System.out.println("Student added.");
                     break;
-
                 case 2:
                     System.out.print("Enter roll number of student to remove: ");
                     int rollToRemove = scanner.nextInt();
@@ -98,7 +83,6 @@ public class Student_management_system{
                         System.out.println("Student not found.");
                     }
                     break;
-
                 case 3:
                     System.out.print("Enter roll number of student to search: ");
                     int rollToSearch = scanner.nextInt();
@@ -110,7 +94,6 @@ public class Student_management_system{
                         System.out.println("Student not found.");
                     }
                     break;
-
                 case 4:
                     List<Student> allStudents = sms.getAllStudents();
                     if (allStudents.isEmpty()) {
@@ -122,13 +105,11 @@ public class Student_management_system{
                         }
                     }
                     break;
-
                 case 5:
                     System.out.println("Exiting...");
                     scanner.close();
                     System.exit(0);
                     break;
-
                 default:
                     System.out.println("Invalid choice. Please choose again.");
                     break;
