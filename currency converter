@@ -1,20 +1,14 @@
 import java.util.Scanner;
-
 public class currency_converter{
-    public static void main(String[] args) {
-
-       
-        Scanner scanner = new Scanner(System.in);
-        
+    public static void main(String[] args) {       
+        Scanner scanner = new Scanner(System.in);   
         System.out.println("Welcome to Currency Converter!");
         System.out.println("1. USD to Rupee");
         System.out.println("2. Rupee to USD");
         System.out.println("3. Euro to Rupee");
         System.out.println("4. Rupee to Euro");
         System.out.print("Enter your choice (1 or 2 or 3 or 4): ");
-        int choice = scanner.nextInt();
-
-       
+        int choice = scanner.nextInt();  
         if (choice == 1) {
             System.out.print("Enter the amount in USD: ");
             double USD = scanner.nextDouble();
@@ -37,15 +31,12 @@ public class currency_converter{
             double Rupee = scanner.nextDouble();
             double EURO = RupeeToEuro(Rupee);
             System.out.println("Converted amount in USD: " +EURO);
-        }
-       
+        }    
         else {
             System.out.println("Invalid choice. Please select 1 or 2 or 3 or 4.");
         }
-
         scanner.close();
     }
-
     public static double usdToRupee(double USD) {
         return USD * 83.47;  // Date: 01/05/24
     }
@@ -58,7 +49,4 @@ public class currency_converter{
     public static double RupeeToEuro(double Rupee) {
         return Rupee *0.0113;   //Date: 01/05/24
     }
-    
-
-   
 }
